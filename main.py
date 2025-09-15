@@ -5,12 +5,12 @@ import uvicorn
 
 app = FastAPI()
 
-@app.get("/blog")
-def index(limit = 10, published: bool = True, sort: Optional[str] = None):
-    if published:
-       return {'data':f'{limit} Published Blog List'}
-    else: 
-       return {'data':f'{limit} Blog List'} 
+# @app.get("/blog")
+# def index(limit = 10, published: bool = True, sort: Optional[str] = None):
+#     if published:
+#        return {'data':f'{limit} Published Blog List'}
+#     else: 
+#        return {'data':f'{limit} Blog List'} 
 
 @app.get("/blog/unpublished")
 def unpublished():
@@ -30,9 +30,9 @@ class Blog(BaseModel):
     body: str
     published: Optional[bool]
 
-@app.post("/blog")
-def create_blog(blog: Blog):
-    return {'data': f'New blog is Created title as {blog.title}'}
+# @app.post("/blog")
+# def create_blog(blog: Blog):
+#     return {'data': f'New blog is Created title as {blog.title}'}
 
 
 if __name__ == "__main__":
